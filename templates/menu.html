@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% block title %}Pure Veg Menu | {{ r.name }}{% endblock %}
+{% block content %}
+
+<!-- 1. FOOD IMAGE HERO BANNER IN PAGE HEADER -->
+<section class="page-hero-food">
+  <div class="wrap page-hero-food-grid">
+    <div>
+      <div class="page-hero-badge">
+        <span>🟩 100% Pure Vegetarian</span>
+      </div>
+      <h1 class="page-hero-title">
+        Our Pure Vegetarian <em>Menu</em>
+      </h1>
+      <p class="page-hero-desc">
+        Savor authentic Kongu & South Indian culinary specialties prepared with pure cow ghee, daily fresh coconut, and traditional hand-ground masalas.
+      </p>
+
+      <!-- Interactive Instant Search Box -->
+      <div class="menu-search-wrap" style="position: relative;">
+        <span class="menu-search-icon" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.15rem; color: #777; z-index: 2;">🔍</span>
+        <input type="text" id="menuSearch" class="menu-search-input" 
+               style="padding: 0.85rem 3rem 0.85rem 2.8rem; font-size: 1.05rem; color: #1F1915; background: #fff; width: 100%; border-radius: 999px; border: 2px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.15);"
+               placeholder="Search dishes (e.g. coffee, roast, meals, paneer, gobi...)" 
+               oninput="filterDishesSearch()" 
+               onkeyup="filterDishesSearch()" 
+               onkeydown="if(event.key==='Enter') scrollToMenu();">
+        
+        <!-- Clear button inside search box -->
+        <button id="clearSearchBtn" onclick="clearMenuSearch()" 
+                style="display: none; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: #eae5d9; border: none; border-radius: 50%; width: 26px; height: 26px; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: #555; align-items: center; justify-content: center;" 
+                title="Clear Search">✕</button>
+        
+        <!-- Live Result Feedback Tag -->
+        <div id="searchMatchNotice" style="display: none; margin-top: 0.6rem; font-size: 0.95rem; color: #a7f3d0; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+          <span id="searchMatchText"></span>
+          <button onclick="scrollToMenu()" style="background: rgba(255,255,255,0.2); border: 1px solid #a7f3d0; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">View Dishes ↓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Floating Food Dish Showcase -->
+    <div class="food-hero-showcase">
+      <div class="food-hero-circle">
+        <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=600&auto=format&fit=crop" 
+             alt="Signature Ghee Podi Roast Dosa">
+      </div>
+      <div class="hero-floating-badge">
+        <span>🔥 Chef's Pride: Ghee Podi Roast</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. STICKY CATEGORY TABS WITH ANIMATIONS -->
+<div class="tabs-wrap" id="menu-tabs-anchor">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-cat="all">🍽️ All Dishes</button>
+      <button class="tab" data-cat="South Indian Specials & Tiffin">🥞 Tiffin Specials</button>
+      <button class="tab" data-cat="Traditional Meals & Rice">🍱 Full Meals & Rice</button>
+      <button class="tab" data-cat="Soups">🍲 Soups</button>
+      <button class="tab" data-cat="Dry Starters">🌶️ Dry Starters</button>
+      <button class="tab" data-cat="North Indian Gravies & Breads">🍛 Curries & Breads</button>
+      <button class="tab" data-cat="Desserts & Sweets">🍨 Sweets & Payasam</button>
+      <button class="tab" data-cat="Beverages">☕ Filter Coffee & Drinks</button>
+    </div>
+  </div>
+</div>
+
+<!-- 3. MENU ITEMS SECTION -->
+<section class="section white" id="menu-content-area" style="padding-top: 3.5rem;">
+  <div class="wrap">
+    
+    <!-- No Results Box -->
+    <div id="no-results-msg" style="display: none; text-align: center; padding: 3rem 2rem; background: #faf8f5; border-radius: 12px; border: 2px dashed #dcd4c3; margin-bottom: 2.5rem;">
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🍽️</div>
+      <h3 style="font-family: var(--serif); color: var(--ink); margin-bottom: 0.5rem;">No matching vegetarian dishes found</h3>
+      <p style="color: var(--muted); margin-bottom: 1.2rem;">We couldn't find any dishes matching your search term. Try searching for "Dosa", "Meals", "Coffee", or "Gobi".</p>
+      <button onclick="clearMenuSearch()" class="btn btn-line btn-sm">Clear Search & View All</button>
+    </div>
+
+    <!-- Menu Categories Container -->
+    <div class="menu-categories-container">
+      {% for cat, items in menu.items() %}
+      <div class="menu-cat" data-cat="{{ cat }}">
+        <h3 class="cat">
+          <span>{{ cat }}</span>
+          <span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">
+            100% Pure Veg
+          </span>
+        </h3>
+        
+        <div class="menu-items-grid">
+          {% for n, d, p in items %}
+          <div class="menu-card-item">
+            <div style="flex-grow: 1; padding-right: 1rem;">
+              <h4 class="item-title">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border: 1.5px solid #28a745; border-radius: 2px;">
+                  <span style="width: 7px; height: 7px; background: #28a745; border-radius: 50%;"></span>
+                </span>
+                <span class="dish-name-text">{{ n }}</span>
+              </h4>
+              <p class="item-desc">{{ d }}</p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0;">
+              <span class="item-price">₹{{ p }}</span>
+              <a href="{{ url_for('order') }}" class="btn-add">+ Order</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Call to action card -->
+    <div style="background: linear-gradient(135deg, var(--green-d) 0%, var(--green) 100%); color: #fff; border-radius: 14px; padding: 2.5rem 3rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; box-shadow: 0 12px 28px rgba(10,56,37,0.18);">
+      <div>
+        <h3 style="font-family: var(--serif); font-size: 1.8rem; color: #fff; margin-bottom: 0.4rem;">Ready to Order Your Favourite Dishes?</h3>
+        <p style="color: #d5e4dc;">Table service dining or takeaway packing delivered piping-hot from our kitchen.</p>
+      </div>
+      <a class="btn btn-gold" href="{{ url_for('order') }}" style="font-weight: 800; font-size: 1.05rem; padding: 0.9rem 2.2rem; white-space: nowrap;">
+        Proceed to Online Order →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Client-side Interactive Filter & Search Script -->
+<script>
+function scrollToMenu() {
+  const el = document.getElementById('menu-tabs-anchor');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function clearMenuSearch() {
+  const searchInput = document.getElementById('menuSearch');
+  searchInput.value = '';
+  document.getElementById('clearSearchBtn').style.display = 'none';
+  document.getElementById('searchMatchNotice').style.display = 'none';
+  filterDishesSearch();
+}
+
+function filterDishesSearch() {
+  const searchInput = document.getElementById('menuSearch');
+  const query = (searchInput.value || '').toLowerCase().trim();
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const noticeBox = document.getElementById('searchMatchNotice');
+  const noticeText = document.getElementById('searchMatchText');
+  const noResBox = document.getElementById('no-results-msg');
+
+  // Toggle clear button
+  if (clearBtn) {
+    clearBtn.style.display = query ? 'flex' : 'none';
+  }
+
+  // When user is searching, switch category tab indicator to "All Dishes"
+  if (query) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    const allTab = document.querySelector('.tab[data-cat="all"]');
+    if (allTab) allTab.classList.add('on');
+  }
+
+  const allCards = document.querySelectorAll('.menu-card-item');
+  let matchCount = 0;
+
+  // Search across each dish card
+  allCards.forEach(card => {
+    const cardContent = (card.textContent || '').toLowerCase();
+    if (!query || cardContent.includes(query)) {
+      card.style.display = 'flex';
+      matchCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Show/Hide Category Sections based on whether they contain visible cards
+  document.querySelectorAll('.menu-cat').forEach(catSection => {
+    let hasVisibleCard = false;
+    catSection.querySelectorAll('.menu-card-item').forEach(card => {
+      if (card.style.display !== 'none') {
+        hasVisibleCard = true;
+      }
+    });
+
+    catSection.style.display = hasVisibleCard ? 'block' : 'none';
+  });
+
+  // Update Result Notice
+  if (query) {
+    if (noticeBox && noticeText) {
+      noticeBox.style.display = 'flex';
+      noticeText.textContent = `Found ${matchCount} vegetarian dish${matchCount === 1 ? '' : 'es'} matching "${query}"`;
+    }
+    if (noResBox) {
+      noResBox.style.display = (matchCount === 0) ? 'block' : 'none';
+    }
+  } else {
+    if (noticeBox) noticeBox.style.display = 'none';
+    if (noResBox) noResBox.style.display = 'none';
+    
+    // If query is empty, make sure all categories are visible
+    document.querySelectorAll('.menu-cat').forEach(cat => cat.style.display = 'block');
+    allCards.forEach(card => card.style.display = 'flex');
+  }
+}
+
+// Category tabs click handler
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    tab.classList.add('on');
+    
+    // Clear search box so it doesn't conflict
+    const searchInput = document.getElementById('menuSearch');
+    if (searchInput) searchInput.value = '';
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (clearBtn) clearBtn.style.display = 'none';
+    const noticeBox = document.getElementById('searchMatchNotice');
+    if (noticeBox) noticeBox.style.display = 'none';
+    const noResBox = document.getElementById('no-results-msg');
+    if (noResBox) noResBox.style.display = 'none';
+
+    const selectedCategory = tab.dataset.cat;
+    
+    document.querySelectorAll('.menu-cat').forEach(catSection => {
+      // Restore all cards inside category
+      catSection.querySelectorAll('.menu-card-item').forEach(card => {
+        card.style.display = 'flex';
+      });
+
+      if (selectedCategory === 'all' || catSection.dataset.cat === selectedCategory) {
+        catSection.style.display = 'block';
+      } else {
+        catSection.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

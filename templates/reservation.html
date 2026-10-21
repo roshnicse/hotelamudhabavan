@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Reserve a table | {{ r.name }}{% endblock %}
+{% block content %}
+<section class="section green"><div class="wrap split">
+  <div>
+    <h1>Reserve a table</h1>
+    <p>Tell us when you are coming and we will call to confirm. {{ r.hours }}.</p>
+  </div>
+  <div class="card-form">{% include "_reserve_form.html" %}</div>
+</div></section>
+{% endblock %}

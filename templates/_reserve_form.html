@@ -1,0 +1,16 @@
+<form class="form" method="post" action="{{ url_for('reservation') }}">
+  <div class="row">
+    <label>Name<input name="name" required autocomplete="name"></label>
+    <label>Phone<input name="phone" type="tel" required autocomplete="tel"></label>
+  </div>
+  <div class="row">
+    <label>Email (optional)<input name="email" type="email" autocomplete="email"></label>
+    <label>Guests<input name="guests" type="number" min="1" max="20" value="2" required></label>
+  </div>
+  <div class="row">
+    <label>Date<input name="date" type="date" required data-min-today></label>
+    <label>Time<input name="time" type="time" value="19:30" required></label>
+  </div>
+  <label>Special requests<textarea name="notes" rows="3" placeholder="Birthday, allergies, seating preference"></textarea></label>
+  <button class="btn btn-red" type="submit">Request this table</button>
+</form>

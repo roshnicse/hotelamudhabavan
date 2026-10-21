@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Photo Gallery | {{ r.name }}{% endblock %}
+{% block content %}
+
+<!-- Food Image Hero Banner -->
+<section class="page-hero-food">
+  <div class="wrap page-hero-food-grid">
+    <div>
+      <div class="page-hero-badge">
+        <span>📸 Visual Feast</span>
+      </div>
+      <h1 class="page-hero-title">
+        Our Food <em>Gallery</em>
+      </h1>
+      <p class="page-hero-desc">
+        A visual journey celebrating golden ghee roasts, authentic banana leaf full meals, sizzling tandoori paneer, and rich Indian sweets.
+      </p>
+    </div>
+
+    <div class="food-hero-showcase">
+      <div class="food-hero-circle">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" 
+             alt="Signature Filter Coffee in Brass Davarah">
+      </div>
+      <div class="hero-floating-badge">
+        <span>☕ Fresh Degree Filter Coffee</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="wrap">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;">
+      
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=600&auto=format&fit=crop" alt="Crispy Ghee Podi Roast" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Signature Ghee Podi Roast</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Crispy golden dosa roasted in pure cow ghee and fragrant idli podi.</small>
+        </div>
+      </div>
+
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?q=80&w=600&auto=format&fit=crop" alt="Traditional Full Meals on Banana Leaf" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">South Indian Full Meals</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Unlimited banana leaf lunch with traditional sambar, rasam, kootu & payasam.</small>
+        </div>
+      </div>
+
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=600&auto=format&fit=crop" alt="Crispy Gobi 65" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Golden Gobi 65</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Crunchy spiced cauliflower florets tossed with curry leaves and green chillies.</small>
+        </div>
+      </div>
+
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" alt="Paneer Butter Masala" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Paneer Butter Masala</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Silky cashew-tomato gravy simmered with fresh cottage cheese cubes.</small>
+        </div>
+      </div>
+
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="South Indian Degree Filter Coffee" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Degree Filter Coffee</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Freshly brewed decoction served piping hot in traditional brass davarah.</small>
+        </div>
+      </div>
+
+      <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5; transition: transform .3s ease;" class="gal-card">
+        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop" alt="Traditional Payasam and Sweets" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+        <div style="padding: 1.15rem 1.25rem;">
+          <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Traditional Payasam & Sweets</h4>
+          <small style="color: var(--muted); font-size: 0.9rem;">Rich payasam cooked daily with roasted nuts and pure cardamom.</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pure Veg Menu | Hotel Amudhabawan (HAB) | Erode</title>
+  <meta name="description" content="Explore Hotel Amudhabawan's 100% pure vegetarian menu: Ghee Podi Roast, South Indian Full Meals, Soups, Dry Starters, Curries, and Degree Filter Coffee.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Top Announcement Bar -->
+<div class="top-bar">
+  <div class="wrap top-bar-inner">
+    <div class="top-bar-left"><span>🕒 Daily: 7:00 AM – 10:30 PM</span></div>
+    <div class="top-bar-right">
+      <a href="tel:+919443312345">📞 +91 94433 12345</a>
+      <span style="opacity: 0.5;">|</span>
+      <div style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><a href="#">FB</a><a href="#">IG</a><a href="#">YT</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <a class="brand-wrap" href="index.html" aria-label="Hotel Amudhabawan home">
+    <img src="static/images/hab-logo.png" alt="Hotel Amudhabawan Logo" style="height: 52px; width: auto; object-fit: contain; border-radius: 4px;">
+    <div class="brand-name-box">
+      <div style="display: flex; align-items: center; gap: 0.4rem;">
+        <h2 style="font-size: 1.45rem;">Hotel Amudhabawan</h2>
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border: 2px solid #28a745; border-radius: 3px;" title="100% Pure Vegetarian">
+          <span style="width: 8px; height: 8px; background: #28a745; border-radius: 50%;"></span>
+        </span>
+      </div>
+      <span style="color: #28a745; font-weight: 700; letter-spacing: 0.08em;">100% Pure Vegetarian</span>
+    </div>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰ Menu</button>
+  
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="order.html">Order Online</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-red btn-sm" href="reservation.html">Reserve a Table</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 1. FOOD IMAGE HERO BANNER IN PAGE HEADER -->
+  <section class="page-hero-food">
+    <div class="wrap page-hero-food-grid">
+      <div>
+        <div class="page-hero-badge">
+          <span>🟩 100% Pure Vegetarian</span>
+        </div>
+        <h1 class="page-hero-title">
+          Our Pure Vegetarian <em>Menu</em>
+        </h1>
+        <p class="page-hero-desc">
+          Savor authentic Kongu & South Indian culinary specialties prepared with pure cow ghee, daily fresh coconut, and traditional hand-ground masalas.
+        </p>
+
+        <!-- Interactive Instant Search Box -->
+        <div class="menu-search-wrap" style="position: relative;">
+          <span class="menu-search-icon" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.15rem; color: #777; z-index: 2;">🔍</span>
+          <input type="text" id="menuSearch" class="menu-search-input" 
+                 style="padding: 0.85rem 3rem 0.85rem 2.8rem; font-size: 1.05rem; color: #1F1915; background: #fff; width: 100%; border-radius: 999px; border: 2px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.15);"
+                 placeholder="Search dishes (e.g. coffee, roast, meals, paneer, gobi...)" 
+                 oninput="filterDishesSearch()" 
+                 onkeyup="filterDishesSearch()" 
+                 onkeydown="if(event.key==='Enter') scrollToMenu();">
+          
+          <button id="clearSearchBtn" onclick="clearMenuSearch()" 
+                  style="display: none; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: #eae5d9; border: none; border-radius: 50%; width: 26px; height: 26px; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: #555; align-items: center; justify-content: center;" 
+                  title="Clear Search">✕</button>
+          
+          <div id="searchMatchNotice" style="display: none; margin-top: 0.6rem; font-size: 0.95rem; color: #a7f3d0; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+            <span id="searchMatchText"></span>
+            <button onclick="scrollToMenu()" style="background: rgba(255,255,255,0.2); border: 1px solid #a7f3d0; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">View Dishes ↓</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="food-hero-showcase">
+        <div class="food-hero-circle">
+          <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=600&auto=format&fit=crop" alt="Signature Ghee Podi Roast Dosa">
+        </div>
+        <div class="hero-floating-badge">
+          <span>🔥 Chef's Pride: Ghee Podi Roast</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STICKY CATEGORY TABS -->
+  <div class="tabs-wrap" id="menu-tabs-anchor">
+    <div class="wrap">
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-cat="all">🍽️ All Dishes</button>
+        <button class="tab" data-cat="tiffin">🥞 Tiffin Specials</button>
+        <button class="tab" data-cat="meals">🍱 Full Meals & Rice</button>
+        <button class="tab" data-cat="soups">🍲 Soups</button>
+        <button class="tab" data-cat="starters">🌶️ Dry Starters</button>
+        <button class="tab" data-cat="curries">🍛 Curries & Breads</button>
+        <button class="tab" data-cat="desserts">🍨 Sweets & Payasam</button>
+        <button class="tab" data-cat="beverages">☕ Filter Coffee & Drinks</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MENU ITEMS SECTION -->
+  <section class="section white" id="menu-content-area" style="padding-top: 3.5rem;">
+    <div class="wrap">
+      
+      <div id="no-results-msg" style="display: none; text-align: center; padding: 3rem 2rem; background: #faf8f5; border-radius: 12px; border: 2px dashed #dcd4c3; margin-bottom: 2.5rem;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🍽️</div>
+        <h3 style="font-family: var(--serif); color: var(--ink); margin-bottom: 0.5rem;">No matching vegetarian dishes found</h3>
+        <p style="color: var(--muted); margin-bottom: 1.2rem;">Try searching for "Dosa", "Meals", "Coffee", or "Gobi".</p>
+        <button onclick="clearMenuSearch()" class="btn btn-line btn-sm">Clear Search & View All</button>
+      </div>
+
+      <div class="menu-categories-container">
+
+        <!-- Category: Tiffin -->
+        <div class="menu-cat" data-cat="tiffin">
+          <h3 class="cat"><span>South Indian Specials & Tiffin</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Ghee Podi Roast</span></h4><p class="item-desc">Crispy golden roast laced with aromatic homemade podi and pure cow ghee</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹110</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Special Masala Dosa</span></h4><p class="item-desc">Crisp rice crepe stuffed with spiced potato masala, served with 3 chutneys & sambar</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹95</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Ghee Paper Roast</span></h4><p class="item-desc">Super thin and crispy large wafer-style dosa roasted in pure ghee</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹130</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Idly Vada Sambar (2+1)</span></h4><p class="item-desc">Steaming hot soft mallipoo idlies with crispy medu vada and piping hot sambar</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹75</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Onion Uthappam</span></h4><p class="item-desc">Thick fluffy fermented pancake topped with caramelized shallots and green chillies</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹90</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Rava Masala Dosa</span></h4><p class="item-desc">Crunchy semolina crepe filled with potato masala and cashews</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹105</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Meals -->
+        <div class="menu-cat" data-cat="meals">
+          <h3 class="cat"><span>Traditional Meals & Rice</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Amudhabawan Special Full Meals</span></h4><p class="item-desc">Unlimited South Indian meals on banana leaf with sambar, rasam, kootu, poriyal, appalam, payasam & curd</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹150</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Special Veg Dum Biryani</span></h4><p class="item-desc">Seeraga samba rice cooked with fresh farm vegetables and whole aromatic spices</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹140</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Ghee Sambar Rice</span></h4><p class="item-desc">Traditional temple-style sambar rice tempered with ghee and cashews</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹90</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Curd Rice with Pomegranate</span></h4><p class="item-desc">Creamy tempered curd rice with mustard, ginger, green chillies & pomegranate</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹80</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Soups -->
+        <div class="menu-cat" data-cat="soups">
+          <h3 class="cat"><span>Soups</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Mushroom Soup</span></h4><p class="item-desc">Rich creamy soup loaded with fresh button mushrooms and cracked pepper</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹90</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Veg Manchow Soup</span></h4><p class="item-desc">Spicy Indo-Chinese broth with minced vegetables topped with crispy fried noodles</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹85</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Classic Tomato Soup</span></h4><p class="item-desc">Velvety fresh country tomato broth garnished with fried bread croutons</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹80</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Starters -->
+        <div class="menu-cat" data-cat="starters">
+          <h3 class="cat"><span>Dry Starters</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Gobi 65</span></h4><p class="item-desc">Crispy golden fried cauliflower florets tossed with curry leaves and green chillies</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹120</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Paneer Manchurian</span></h4><p class="item-desc">Crispy cottage cheese cubes tossed in spicy tangy Manchurian sauce</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹160</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Chilli Mushroom</span></h4><p class="item-desc">Batter-fried button mushrooms sautéed with bell peppers and spring onions</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹150</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Baby Corn Fry</span></h4><p class="item-desc">Crispy golden baby corn fingers seasoned with fragrant southern spices</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹130</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Curries -->
+        <div class="menu-cat" data-cat="curries">
+          <h3 class="cat"><span>North Indian Gravies & Breads</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Paneer Butter Masala</span></h4><p class="item-desc">Rich tomato-cashew gravy with melt-in-the-mouth paneer cubes and butter finish</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹170</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Butter Naan</span></h4><p class="item-desc">Tandoor baked refined flour bread brushed with fresh butter</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹55</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Garlic Naan</span></h4><p class="item-desc">Charred tandoor naan infused with fresh minced garlic and coriander</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹65</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Desserts -->
+        <div class="menu-cat" data-cat="desserts">
+          <h3 class="cat"><span>Desserts & Sweets</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Traditional Payasam (Daily Special)</span></h4><p class="item-desc">Rich slow-simmered payasam with roasted cashews, raisins and cardamom</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹60</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Gulab Jamun (2 Pcs)</span></h4><p class="item-desc">Soft khoya dumplings soaked in warm rose and cardamom scented sugar syrup</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹60</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Beverages -->
+        <div class="menu-cat" data-cat="beverages">
+          <h3 class="cat"><span>Beverages & Filter Coffee</span><span style="font-size: 0.825rem; font-family: var(--sans); font-weight: 700; color: #28a745; background: #e8f5e9; padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid #b7e4c7;">100% Pure Veg</span></h3>
+          <div class="menu-items-grid">
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">South Indian Degree Filter Coffee</span></h4><p class="item-desc">Signature decoction brewed with fresh milk in traditional brass davarah</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹40</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Sweet Lassi / Mango Lassi</span></h4><p class="item-desc">Thick churned creamy yogurt beverage with sweet cardamom finish</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹70</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+            <div class="menu-card-item">
+              <div style="flex-grow: 1; padding-right: 1rem;"><h4 class="item-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1.5px solid #28a745;border-radius:2px"><span style="width:7px;height:7px;background:#28a745;border-radius:50%"></span></span><span class="dish-name-text">Fresh Lime Soda (Sweet / Salt)</span></h4><p class="item-desc">Refreshing fizzy soda with fresh squeezed lemon juice and mint</p></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem"><span class="item-price">₹50</span><a href="order.html" class="btn-add">+ Order</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background: linear-gradient(135deg, var(--green-d) 0%, var(--green) 100%); color: #fff; border-radius: 14px; padding: 2.5rem 3rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; box-shadow: 0 12px 28px rgba(10,56,37,0.18);">
+        <div>
+          <h3 style="font-family: var(--serif); font-size: 1.8rem; color: #fff; margin-bottom: 0.4rem;">Ready to Order Your Favourite Dishes?</h3>
+          <p style="color: #d5e4dc;">Table service dining or takeaway packing delivered piping-hot from our kitchen.</p>
+        </div>
+        <a class="btn btn-gold" href="order.html" style="font-weight: 800; font-size: 1.05rem; padding: 0.9rem 2.2rem; white-space: nowrap;">
+          Proceed to Online Order →
+        </a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer-v2">
+  <div class="wrap">
+    <div class="footer-grid-v2">
+      <div class="footer-col">
+        <div class="brand-wrap" style="margin-bottom: 1rem;">
+          <img src="static/images/hab-logo.png" alt="Hotel Amudhabawan Logo" style="height: 48px; width: auto; background: #fff; padding: 3px; border-radius: 4px;">
+          <div class="brand-name-box">
+            <h2 style="color: #fff; font-size: 1.35rem;">Hotel Amudhabawan</h2>
+            <span style="color: #5cdb7a;">100% Pure Vegetarian</span>
+          </div>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Erode's premier 100% pure vegetarian dining destination. Serving authentic Ghee Podi Roast, Full Meals, Tandoor & Indo-Chinese delicacies since 2008.</p>
+        <div style="font-family: var(--script); font-size: 1.8rem; color: var(--gold-light); transform: rotate(-2deg);">
+          Good Food, Happy Moments ✨
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="reservation.html">Reserve a Table</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Food Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p style="margin-bottom: 0.75rem;">📍 Opp. Kongu Kalaiarangam, Sampath Nagar, Erode - 638011</p>
+        <p style="margin-bottom: 0.75rem;">📞 <a href="tel:+919443312345" style="color: inherit;">+91 94433 12345</a></p>
+        <p style="margin-bottom: 0.75rem;">✉️ <a href="mailto:contact@amudhabawan.com" style="color: inherit;">contact@amudhabawan.com</a></p>
+        <p style="color: var(--gold-light);">🕒 Daily: 7:00 AM – 10:30 PM</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">FB</a>
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">IG</a>
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">YT</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Hotel Amudhabawan (HAB). All Rights Reserved.</p>
+      <p>Designed with passion for great vegetarian taste.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+<script>
+function scrollToMenu() {
+  const el = document.getElementById('menu-tabs-anchor');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function clearMenuSearch() {
+  const searchInput = document.getElementById('menuSearch');
+  searchInput.value = '';
+  document.getElementById('clearSearchBtn').style.display = 'none';
+  document.getElementById('searchMatchNotice').style.display = 'none';
+  filterDishesSearch();
+}
+
+function filterDishesSearch() {
+  const searchInput = document.getElementById('menuSearch');
+  const query = (searchInput.value || '').toLowerCase().trim();
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const noticeBox = document.getElementById('searchMatchNotice');
+  const noticeText = document.getElementById('searchMatchText');
+  const noResBox = document.getElementById('no-results-msg');
+
+  if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+
+  if (query) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    const allTab = document.querySelector('.tab[data-cat="all"]');
+    if (allTab) allTab.classList.add('on');
+  }
+
+  const allCards = document.querySelectorAll('.menu-card-item');
+  let matchCount = 0;
+
+  allCards.forEach(card => {
+    const cardContent = (card.textContent || '').toLowerCase();
+    if (!query || cardContent.includes(query)) {
+      card.style.display = 'flex';
+      matchCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.querySelectorAll('.menu-cat').forEach(catSection => {
+    let hasVisibleCard = false;
+    catSection.querySelectorAll('.menu-card-item').forEach(card => {
+      if (card.style.display !== 'none') {
+        hasVisibleCard = true;
+      }
+    });
+    catSection.style.display = hasVisibleCard ? 'block' : 'none';
+  });
+
+  if (query) {
+    if (noticeBox && noticeText) {
+      noticeBox.style.display = 'flex';
+      noticeText.textContent = `Found ${matchCount} vegetarian dish${matchCount === 1 ? '' : 'es'} matching "${query}"`;
+    }
+    if (noResBox) {
+      noResBox.style.display = (matchCount === 0) ? 'block' : 'none';
+    }
+  } else {
+    if (noticeBox) noticeBox.style.display = 'none';
+    if (noResBox) noResBox.style.display = 'none';
+    document.querySelectorAll('.menu-cat').forEach(cat => cat.style.display = 'block');
+    allCards.forEach(card => card.style.display = 'flex');
+  }
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    tab.classList.add('on');
+    
+    const searchInput = document.getElementById('menuSearch');
+    if (searchInput) searchInput.value = '';
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (clearBtn) clearBtn.style.display = 'none';
+    const noticeBox = document.getElementById('searchMatchNotice');
+    if (noticeBox) noticeBox.style.display = 'none';
+    const noResBox = document.getElementById('no-results-msg');
+    if (noResBox) noResBox.style.display = 'none';
+
+    const selectedCategory = tab.dataset.cat;
+    
+    document.querySelectorAll('.menu-cat').forEach(catSection => {
+      catSection.querySelectorAll('.menu-card-item').forEach(card => {
+        card.style.display = 'flex';
+      });
+
+      if (selectedCategory === 'all' || catSection.dataset.cat === selectedCategory) {
+        catSection.style.display = 'block';
+      } else {
+        catSection.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

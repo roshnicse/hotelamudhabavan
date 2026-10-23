@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Gallery | Hotel Amudhabawan (HAB) | Erode</title>
+  <meta name="description" content="Browse appetizing photos of crispy Ghee Podi Roast, South Indian meals on banana leaf, Gobi 65, and Degree Filter Coffee at Hotel Amudhabawan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Top Announcement Bar -->
+<div class="top-bar">
+  <div class="wrap top-bar-inner">
+    <div class="top-bar-left"><span>🕒 Daily: 7:00 AM – 10:30 PM</span></div>
+    <div class="top-bar-right">
+      <a href="tel:+919443312345">📞 +91 94433 12345</a>
+      <span style="opacity: 0.5;">|</span>
+      <div style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><a href="#">FB</a><a href="#">IG</a><a href="#">YT</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <a class="brand-wrap" href="index.html" aria-label="Hotel Amudhabawan home">
+    <img src="static/images/hab-logo.png" alt="Hotel Amudhabawan Logo" style="height: 52px; width: auto; object-fit: contain; border-radius: 4px;">
+    <div class="brand-name-box">
+      <div style="display: flex; align-items: center; gap: 0.4rem;">
+        <h2 style="font-size: 1.45rem;">Hotel Amudhabawan</h2>
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border: 2px solid #28a745; border-radius: 3px;" title="100% Pure Vegetarian">
+          <span style="width: 8px; height: 8px; background: #28a745; border-radius: 50%;"></span>
+        </span>
+      </div>
+      <span style="color: #28a745; font-weight: 700; letter-spacing: 0.08em;">100% Pure Vegetarian</span>
+    </div>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰ Menu</button>
+  
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="order.html">Order Online</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-red btn-sm" href="reservation.html">Reserve a Table</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Food Image Hero Banner -->
+  <section class="page-hero-food">
+    <div class="wrap page-hero-food-grid">
+      <div>
+        <div class="page-hero-badge">
+          <span>📸 Visual Feast</span>
+        </div>
+        <h1 class="page-hero-title">
+          Our Food <em>Gallery</em>
+        </h1>
+        <p class="page-hero-desc">
+          A visual journey celebrating golden ghee roasts, authentic banana leaf full meals, sizzling tandoori paneer, and rich Indian sweets.
+        </p>
+      </div>
+
+      <div class="food-hero-showcase">
+        <div class="food-hero-circle">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Signature Filter Coffee in Brass Davarah">
+        </div>
+        <div class="hero-floating-badge">
+          <span>☕ Fresh Degree Filter Coffee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="wrap">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem;">
+        
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=600&auto=format&fit=crop" alt="Crispy Ghee Podi Roast" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Signature Ghee Podi Roast</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Crispy golden dosa roasted in pure cow ghee and fragrant idli podi.</small>
+          </div>
+        </div>
+
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?q=80&w=600&auto=format&fit=crop" alt="Traditional Full Meals on Banana Leaf" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">South Indian Full Meals</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Unlimited banana leaf lunch with traditional sambar, rasam, kootu & payasam.</small>
+          </div>
+        </div>
+
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=600&auto=format&fit=crop" alt="Crispy Gobi 65" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Golden Gobi 65</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Crunchy spiced cauliflower florets tossed with curry leaves and green chillies.</small>
+          </div>
+        </div>
+
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" alt="Paneer Butter Masala" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Paneer Butter Masala</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Silky cashew-tomato gravy simmered with fresh cottage cheese cubes.</small>
+          </div>
+        </div>
+
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="South Indian Degree Filter Coffee" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Degree Filter Coffee</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Freshly brewed decoction served piping hot in traditional brass davarah.</small>
+          </div>
+        </div>
+
+        <div style="background: #faf8f5; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #ebdcc5;" class="gal-card">
+          <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop" alt="Traditional Payasam and Sweets" style="aspect-ratio: 4/3; object-fit: cover; width: 100%;">
+          <div style="padding: 1.15rem 1.25rem;">
+            <h4 style="font-family: var(--serif); font-size: 1.2rem; color: var(--green); margin-bottom: 0.3rem;">Traditional Payasam & Sweets</h4>
+            <small style="color: var(--muted); font-size: 0.9rem;">Rich payasam cooked daily with roasted nuts and pure cardamom.</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer-v2">
+  <div class="wrap">
+    <div class="footer-grid-v2">
+      <div class="footer-col">
+        <div class="brand-wrap" style="margin-bottom: 1rem;">
+          <img src="static/images/hab-logo.png" alt="Hotel Amudhabawan Logo" style="height: 48px; width: auto; background: #fff; padding: 3px; border-radius: 4px;">
+          <div class="brand-name-box">
+            <h2 style="color: #fff; font-size: 1.35rem;">Hotel Amudhabawan</h2>
+            <span style="color: #5cdb7a;">100% Pure Vegetarian</span>
+          </div>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Erode's premier 100% pure vegetarian dining destination since 2008.</p>
+        <div style="font-family: var(--script); font-size: 1.8rem; color: var(--gold-light); transform: rotate(-2deg);">Good Food, Happy Moments ✨</div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="reservation.html">Reserve a Table</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Food Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p style="margin-bottom: 0.75rem;">📍 Opp. Kongu Kalaiarangam, Sampath Nagar, Erode - 638011</p>
+        <p style="margin-bottom: 0.75rem;">📞 <a href="tel:+919443312345" style="color: inherit;">+91 94433 12345</a></p>
+        <p style="margin-bottom: 0.75rem;">✉️ <a href="mailto:contact@amudhabawan.com" style="color: inherit;">contact@amudhabawan.com</a></p>
+        <p style="color: var(--gold-light);">🕒 Daily: 7:00 AM – 10:30 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">FB</a>
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">IG</a>
+          <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-weight: bold;">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Hotel Amudhabawan (HAB). All Rights Reserved.</p>
+      <p>Designed with passion for great vegetarian taste.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>

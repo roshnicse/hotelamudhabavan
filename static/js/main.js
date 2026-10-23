@@ -1,10 +1,35 @@
 // Mobile navigation toggle
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.getElementById('nav');
-toggle?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', open);
-});
+
+if (toggle && nav) {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.innerHTML = isOpen ? '✕ Close' : '☰ Menu';
+  });
+
+  // Close when clicking outside of nav
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      if (nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '☰ Menu';
+      }
+    }
+  });
+
+  // Close when clicking a link inside nav
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML = '☰ Menu';
+    });
+  });
+}
 
 // Sticky header enhancement on scroll
 const header = document.querySelector('.site-header');
